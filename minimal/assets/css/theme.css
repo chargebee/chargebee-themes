@@ -1,0 +1,299 @@
+/**
+ * Please do not edit the placeholder variables here. You can configure them on conf/presets.json.
+ *
+ * NOTE: Some of the Twitter Bootstrap's default style classes are modified to suit better.
+ **/
+
+/* Body background, Font family, size & color */
+body{
+    font-size:13px;
+	color:{{text.text_color}};
+    font-family:{{typography.body}};
+    background:{{body.background_color}} {{#body.use_background_image}}url({{body.background_image}}){{^body.tile_background_image}}no-repeat{{/body.tile_background_image}}{{/body.use_background_image}};
+}
+
+/* Horizontal line */
+hr{
+    border-color:{{body.line_color}};
+}
+
+/* href link color */
+a{
+    color:{{text.link_color}};
+}
+a:hover{
+    color:{{text.link_hover_color}};
+}
+
+/* Form field label */
+label, label>span{
+    font-weight:normal;
+    color:{{text.label_color}};
+}
+
+/* Content heading font */
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+    font-family:{{typography.heading}};
+}
+
+/* Form field error message color */
+.text-danger{
+    color:#f00;
+}
+
+/* Form field row and container inside navigation bar on top */
+.row,
+.navbar>.container > .navbar-header,
+.navbar>.container > .navbar-collapse{
+    margin-left:-8px;
+    margin-right:-8px;
+}
+
+/* Spacing between all the columns and container (All the columns wrapped into one of these element) */
+.container,.navbar-brand,.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+/* Wrapper element (All the columns are wrapped inside this element) */
+.container{
+    max-width:816px;
+}
+
+/* Navigation menu background and font color */
+.navbar,
+.dropdown-menu>.panel-heading{
+    background:{{header.background_color}};
+    color:{{header.title_color}};
+}
+
+/* Brand Logo height reset and Brand name font color */
+.navbar-brand{
+    height:auto;
+    color:{{header.title_color}};    
+}
+
+/* Margin bottom space of form group that contains field label, form input element(textbox/textarea/selectbox), error message */
+.form-group{
+    margin-bottom:7px;
+}
+
+/* Styles for form and form related elements. */
+.form-control,
+.form-control:focus,
+.input-group-addon,
+.btn,
+.btn:focus{
+    border-radius:2px;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    outline:none;
+}
+
+/* Background, border, font color and spacing for form input element. */
+.form-control{
+    background:{{input.background_color}};	
+    border-color:{{input.border_color}};
+    color:{{input.color}};
+    font-size:13px;    
+    padding:6px;
+}
+.form-control:focus{
+    border-color:{{input.border_focus_color}};
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+/* This is provided here to ensure its present for the mobile devices, as Bootstrap remove this on mobile devices */
+.form-inline .form-group {
+    display: inline-block;
+    vertical-align:middle;
+}
+
+/* Margin space for form group if placed near inline form */
+.form-inline .form-group + .form-group{
+    margin-left:3px;
+}
+
+/* href link color for any element which has this class */
+.btn-link{
+    color:{{primary_button.background_color}};
+}
+
+/* Font color of help text container */
+.help-block{
+    color:{{text.help_text_color}};
+}
+
+/**
+ * ChargeBee's custom styles - These styles are defined to ensure better styling of various sections.
+ **/
+ 
+/* Horizontal line or border style */
+.dashed{
+    border-style:dashed;
+}
+
+/* Styles for sticky footer. */
+.navbar-static-bottom{
+    line-height:25px;
+    padding:15px 0;
+    margin:0;
+    border-radius:0;
+    text-align:center;
+    color:{{footer.text_color}};
+    background:{{footer.background_color}};    
+}
+
+/* This holds the whole form content from ChargeBee */
+#cb-wrapper-hp{
+	margin-bottom:30px;
+}
+
+/* Heading color and top margin space inside form */
+#cb-wrapper-hp h3{
+    color:{{section.title_color}};
+    margin-top:7px;    
+}
+
+/* Background, border color and font color for default form buttons */
+#cb-wrapper-hp .btn-default{
+    background:{{default_button.background_color}};
+    border-color:{{default_button.border_color}};
+    color:{{default_button.text_color}};    
+}
+
+/* Background, border color and font color for primary form buttons */
+#cb-wrapper-hp .btn-primary{
+    background:{{primary_button.background_color}};
+    border-color:{{primary_button.border_color}};
+    color:{{primary_button.text_color}};    
+}
+
+/* Padding space and font size for primary form buttons */
+#cb-wrapper-hp .btn-primary{
+    padding-left:35px;
+    padding-right:35px;
+    font-size:16px;
+}
+
+/* Font size, background and border style for order summary  section 
+ * #cb-main-content is the identifier for Order summary container in checkout page 
+ * & Existing card details in update card page.
+ */
+#cb-main-content{
+    font-size:13px;
+    line-height:22px;
+    background:{{main_section.background_color}};
+    border: 1px solid {{main_section.border_color}};
+}
+
+/* Styles for heading inside order summary. */
+#cb-main-content h3{
+    background: {{main_section.title_background_color}};
+    color:{{main_section.title_color}};
+    border-radius:5px 5px 0 0;
+    -moz-border-radius:5px 5px 0 0;
+    -webkit-border-radius:5px 5px 0 0;
+    margin: -6px -10px 10px -10px;
+    padding:9px;
+}
+
+/* Reduce default bottom space on order lineitems list */
+#cb-main-content ul{
+    margin-bottom:0;
+}
+
+/* Horizontal line */
+#cb-main-content hr{
+    margin:5px 0;
+}
+
+/* Fix max width for input group(VAT form input group) */
+#cb-main-content .input-group{
+    max-width:250px;
+}
+
+/*Blocks inside the form, each section with identifier for custom styling */
+#cb-main-content,
+#cb-account,
+#cb-billing-shipping,
+#cb-payment,
+#cb-sidebar{    
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin-bottom:15px;
+    padding:5px 9px 10px 9px;
+}
+#cb-account,
+#cb-billing-shipping,
+#cb-payment,
+#cb-sidebar{
+    background-color: {{section.background_color}};
+    border: 1px solid {{section.border_color}};
+}
+
+/*
+ * Styles that are specific for iframe embedded hosted page.
+ */
+#chargebee-iframe #cb-wrapper-hp{
+    max-width:510px;
+    {{#iframe.center}} margin: auto; {{/iframe.center}}
+	{{#iframe.show_border}}border: 1px solid {{iframe.border_color}};{{/iframe.show_border}}
+}
+
+/* media queries start here */
+@media (min-width:768px){
+    .navbar>.container .navbar-brand{
+        margin-left:-8px;
+    }
+    #cb-main-content strong{
+        font-weight:normal;
+    }    
+}
+@media (min-width:600px){
+    .col-sm-12{float:left;width:100%;}
+    .col-sm-11{float:left;width:91.66666666666666%;}
+    .col-sm-10{float:left;width:83.33333333333334%;}
+    .col-sm-9{float:left;width:75%;}
+    .col-sm-8{float:left;width:66.66666666666666%;}
+    .col-sm-7{float:left;width:58.333333333333336%;}
+    .col-sm-6{float:left;width:50%;}
+    .col-sm-5{float:left;width:41.66666666666667%;}
+    .col-sm-4{float:left;width:33.33333333333333%;}
+    .col-sm-3{float:left;width:25%;}
+    .col-sm-2{float:left;width:16.666666666666664%;}
+    .col-sm-1{float:left;width:8.333333333333332%;}
+}
+@media (min-width:480px){
+    #chargebee-iframe .col-sm-12{float:left;width:100%;}
+    #chargebee-iframe .col-sm-11{float:left;width:91.66666666666666%;}
+    #chargebee-iframe .col-sm-10{float:left;width:83.33333333333334%;}
+    #chargebee-iframe .col-sm-9{float:left;width:75%;}
+    #chargebee-iframe .col-sm-8{float:left;width:66.66666666666666%;}
+    #chargebee-iframe .col-sm-7{float:left;width:58.333333333333336%;}
+    #chargebee-iframe .col-sm-6{float:left;width:50%;}
+    #chargebee-iframe .col-sm-5{float:left;width:41.66666666666667%;}
+    #chargebee-iframe .col-sm-4{float:left;width:33.33333333333333%;}
+    #chargebee-iframe .col-sm-3{float:left;width:25%;}
+    #chargebee-iframe .col-sm-2{float:left;width:16.666666666666664%;}
+    #chargebee-iframe .col-sm-1{float:left;width:8.333333333333332%;}
+}
+@media (max-width:480px){
+    h1,h2,h3,.h1,.h2,.h3{
+        font-size:18px;
+		margin-top:10px;
+    }   
+    .center-xs{
+        float:none!important;
+        clear:both;
+        text-align:center;
+        display:block;
+    }
+    .center-xs + .center-xs{
+        margin-top:7px;
+    }
+}

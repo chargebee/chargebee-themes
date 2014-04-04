@@ -1,0 +1,267 @@
+{
+    "meta": {
+        "checkout_layout": "multi_step",
+        "theme_version": "1.0",
+        "bootstrap_version": "3.1.0"
+    },
+    "page": {
+        "meta": {
+            "label": "Page"
+        },
+        "favicon": {
+            "data_type": "image",
+            "label": "Favicon",
+            "desc": "A shortcut icon usually displayed on tabs, address bars and bookmarks of most browsers."
+        }
+    },
+	"header": {
+		"meta": {
+			"label": "Header"
+		},
+		"background_color": {
+			"data_type": "color",
+			"label": "Background color",
+			"desc": "Background color for the header section."
+		},
+		"use_logo": {
+			"data_type": "boolean",
+			"label": "Use brand logo",
+			"desc": "Whether to show your brand logo in the header. If No, just the header title will be displayed."
+		},
+		"logo": {
+			"data_type": "image",
+			"label": "Brand logo",
+			"desc": "A logo to identify your company, product or service to display in the header section."
+		},
+		"title": {
+			"data_type": "text",
+			"label": "Brand name",
+			"desc": "You can configure the title to be shown in the header section here. If logo is shown, this will not be displayed"
+		},
+		"title_color": {
+			"data_type": "color",
+			"label": "Brand name text color",
+			"desc": "Text color for the title, if displayed."
+		}
+	},
+	"body": {
+		"meta": {
+			"label": "Body",
+			"desc": ""
+		},
+		"use_background_image": {
+			"data_type": "boolean",
+			"label": "Use background image?"
+		},
+		"background_image": {
+			"data_type": "image",
+			"label": "Background image"
+		},
+		"tile_background_image": {
+			"data_type": "boolean",
+			"label": "Tile background image",
+			"desc": "If yes, the image will be tiled across the page."
+		},
+		"background_color": {
+			"data_type": "color",
+			"label": "Background color"
+		},
+		"line_color": {
+			"data_type": "color",
+			"label": "Divider line color",
+			"desc": "Color of the horizontal divider lines."
+		}
+	},
+	"typography": {
+		"meta": {
+			"label": "Typography",
+			"desc": "Fonts for the text content in the page. If you use typekit for your fonts, ensure you configure the typekit id in Common Settings and configure the fonts here."
+		},
+		"body": {
+			"data_type": "text",
+			"label": "Body text font",
+			"desc": "Font used for all the text content on the hosted page."
+		},
+		"heading": {
+			"data_type": "text",
+			"label": "Heading text font",
+			"desc": "Font used for the all the headings on the hosted page."
+		}
+	},
+	"text": {
+		"meta": {
+			"label": "Text Colors",
+			"desc": "Color for the texts displayed in the various body section."
+		},
+		"text_color": {
+			"data_type": "color",
+			"label": "Text color",
+			"desc": "Color of the shown elsewhere in the body."
+		},
+		"label_color": {
+			"data_type": "color",
+			"label": "Field label text color"
+		},
+		"help_text_color": {
+			"data_type": "color",
+			"label": "Help text color"
+		},
+		"link_color": {
+			"data_type": "color",
+			"label": "Hyperlink color"
+		},
+		"link_hover_color": {
+			"data_type": "color",
+			"label": "Hyperlink hover color"
+		}
+	},
+	"input": {
+		"meta": {
+			"label": "Input Fields",
+			"desc": "All the fields used to collect input from users."
+		},
+		"background_color": {
+			"data_type": "color",
+			"label": "Background color"
+		},
+		"border_color": {
+			"data_type": "color",
+			"label": "Border color"
+		},
+		"border_focus_color": {
+			"data_type": "color",
+			"label": "Border color on focus"
+		},
+		"color": {
+			"data_type": "color",
+			"label": "Input text color"
+		}
+	},
+	"primary_button": {
+		"meta": {
+			"label": "Main Buttons",
+			"desc": "These styles will be applied for the buttons users click to submit like checkout page, add/update page."
+		},
+		"background_color": {
+			"data_type": "color",
+			"label": "Background color"
+		},
+		"border_color": {
+			"data_type": "color",
+			"label": "Border color"
+		},
+		"text_color": {
+			"data_type": "color",
+			"label": "Text color"
+		}
+	},
+	"default_button": {
+		"meta": {
+			"label": "Alternate Buttons",
+			"desc": "These styles will be applied for the buttons like Apply Discount & Validate VAT Button."
+		},
+		"background_color": {
+			"data_type": "color",
+			"label": "Background color"
+		},
+		"border_color": {
+			"data_type": "color",
+			"label": "Border color"
+		},
+		"text_color": {
+			"data_type": "color",
+			"label": "Text color"
+		},
+	},
+    "section": {
+        "meta": {
+            "label": "Sections",
+			"desc": "Customize the look of the different sections in the hosted page. This includes the account, billing, shipping and payment information."
+        },        
+		"title_background_color": {
+            "data_type": "color",
+            "label": "Heading background color"
+        },
+        "title_text_color": {
+            "data_type": "color",
+            "label": "Heading text color"
+        },
+        "background_color": {
+            "data_type": "color",
+            "label": "Background color",
+            "desc": "Background color for the body of the sections for your page."
+        }
+    },
+	"checkout": {
+        "meta": {
+            "label": "Checkout Page",
+            "desc": "Customize the elements that are specific to your checkout page."
+        },
+        "page_title": {
+            "data_type": "text",
+            "label": "Page title",
+            "desc": "Title of the hosted checkout page."
+        },
+        "step_ok_color":{
+            "data_type":"color",
+			"label":"Success color",
+            "desc": "Color to indicate a particular step is successfully finished with a tick mark."
+        },
+        "step_edit_link_text":{
+          "data_type":"text",
+          "label":"Edit link text",
+		  "desc":"Text for the edit link for the user to go back to one of previous steps and make changes to the input."
+        }
+    },
+    "card": {
+        "meta": {
+            "label": "Add/Update Card Page",
+            "desc": "Customize the elements that are specific to your card page."
+        },
+        "page_title": {
+            "data_type": "text",
+            "label": "Page title",
+            "desc": "Title of the hosted card page."
+        }
+    },
+	"footer": {
+		"meta": {
+			"label": "Footer",
+			"desc": "Configure your footer section."
+		},
+		"background_color": {
+			"data_type": "color",
+			"label": "Background color"
+		},
+		"content": {
+			"data_type": "textarea",
+			"label": "Content",
+			"desc": "Content for your footer like copyright message and year."
+		},
+		"text_color": {
+			"data_type": "color",
+			"label": "Text color"
+		}
+	},
+	"iframe": {
+		"meta": {
+			"label": "IFrame",
+			"desc": "Styles specific for the iframe embedded checkout and card hosted pages. For API use only."
+		},
+		"center": {
+			"data_type": "boolean",
+			"label": "Align center?",
+			"desc": "Specify whether to align the hosted page at center in the inside the iframe or not."
+		},
+		"show_border": {
+			"data_type": "boolean",
+			"label": "Show border?",
+			"desc": "Whether to show border for the iframe embed hosted page."
+		},
+		"border_color": {
+			"data_type": "color",
+			"label": "Border color",
+			"desc": "Border color for the iframe embed hosted page."
+		}
+	}
+}
