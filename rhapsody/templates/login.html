@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>          
-        <title>Error</title>       
-        <!--Favourite icon-->           
+    <head>
+        <!--Page title-->        
+        <title>{{{customer_portal.page_title}}}</title>
+        <!--Favourite icon-->        
         <link rel="shortcut icon" href='{{page.favicon}}'>        
         <meta charset="utf-8">
         <!--Viewport for Responsive layout-->
@@ -25,10 +26,18 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container">           
             <!--chargebee content start-->
             <div id="__CHARGEBEE_CONTENT__"></div>
-            <!--chargebee content end-->
+            <!--chargebee content end-->            
         </div>
-  </body>
+        <!--inline style written to push the sticky footer. Will be removed later(until it's fixed).-->
+        <div style="min-height:100px"></div>
+        <!--Get sticky footer by adding the "cb-sticky-footer" id.-->
+        <div class="navbar navbar-static-bottom" id="cb-sticky-footer">
+            <div class="container">
+                {{{footer.content}}}
+            </div>
+        </div>
+    </body>
 </html>

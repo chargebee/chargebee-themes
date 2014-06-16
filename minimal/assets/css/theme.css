@@ -4,101 +4,112 @@
  * NOTE: Some of the Twitter Bootstrap's default style classes are modified to suit better.
  **/
 
+
+/*****************************************************************************
+ Bootstrap style override for both Hosted page and Portal.
+ *****************************************************************************/
+
 /* Body background, Font family, size & color */
-body{
+body {
     font-size:13px;
-	color:{{text.text_color}};
+    color:{{text.text_color}};
     font-family:{{typography.body}};
     background:{{body.background_color}} {{#body.use_background_image}}url({{body.background_image}}){{^body.tile_background_image}}no-repeat{{/body.tile_background_image}}{{/body.use_background_image}};
 }
 
 /* Horizontal line */
 hr{
-    border-color:{{body.line_color}};
+    border-color:{{body.line_color}};   
 }
 
 /* href link color */
-a{
+a,
+.btn-link{
     color:{{text.link_color}};
+    cursor:pointer;
 }
-a:hover{
+a:hover,
+.btn-link:hover,
+.btn-link:focus{
     color:{{text.link_hover_color}};
 }
 
 /* Form field label */
-label, label>span{
+label{
     font-weight:normal;
-    color:{{text.label_color}};
+    color:{{text.field_label_color}};
 }
 
 /* Content heading font */
-h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family:{{typography.heading}};
+    color:{{text.heading_text_color}};
 }
 
-/* Form field error message color */
-.text-danger{
-    color:#f00;
+/*address*/
+address{
+    margin-bottom:0;
+}
+
+/* Form field error message color*/
+.text-danger {
+    color:{{text.error_text_color}};
 }
 
 /* Form field row and container inside navigation bar on top */
 .row,
-.navbar>.container > .navbar-header,
-.navbar>.container > .navbar-collapse{
-    margin-left:-8px;
-    margin-right:-8px;
+.navbar > .container > .navbar-header,
+.navbar > .container > .navbar-collapse,
+.form-horizontal .form-group{
+    margin-left: -8px;
+    margin-right: -8px;
 }
 
 /* Spacing between all the columns and container (All the columns wrapped into one of these element) */
-.container,.navbar-brand,.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+.container, .navbar-brand, .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
     padding-left: 8px;
     padding-right: 8px;
 }
 
 /* Wrapper element (All the columns are wrapped inside this element) */
-.container{
+.container {
     max-width:816px;
 }
 
-/* Navigation menu background and font color */
-.navbar,
-.dropdown-menu>.panel-heading{
-    background:{{header.background_color}};
-    color:{{header.title_color}};
-}
-
-/* Brand Logo height reset and Brand name font color */
-.navbar-brand{
-    height:auto;
-    color:{{header.title_color}};    
-}
-
 /* Margin bottom space of form group that contains field label, form input element(textbox/textarea/selectbox), error message */
-.form-group{
-    margin-bottom:7px;
+.form-group {
+    margin-bottom: 7px;
 }
 
-/* Styles for form and form related elements. */
+/*field group with input field and button width*/
+.input-group{
+    width:100%;
+}
+
+/*input and button fields */
 .form-control,
 .form-control:focus,
 .input-group-addon,
 .btn,
-.btn:focus{
-    border-radius:2px;
-    -moz-border-radius:2px;
-    -webkit-border-radius:2px;
-    outline:none;
+.btn:focus {
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    outline: none;
 }
 
 /* Background, border, font color and spacing for form input element. */
-.form-control{
-    background:{{input.background_color}};	
+.form-control {
+    font-size: 13px;
+    background:{{input.background_color}};
     border-color:{{input.border_color}};
-    color:{{input.color}};
-    font-size:13px;    
-    padding:6px;
+    color:{{input.text_color}};
+    padding: 6px;
+    box-shadow:none;
+    -webkit-box-shadow:none;
 }
-.form-control:focus{
+.form-control:focus {
+    background:{{input.background_focus_color}};
     border-color:{{input.border_focus_color}};
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -107,193 +118,666 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
 /* This is provided here to ensure its present for the mobile devices, as Bootstrap remove this on mobile devices */
 .form-inline .form-group {
     display: inline-block;
-    vertical-align:middle;
+    vertical-align: middle;
 }
 
 /* Margin space for form group if placed near inline form */
-.form-inline .form-group + .form-group{
-    margin-left:3px;
+.form-inline .form-group + .form-group {
+    margin-left: 3px;
 }
 
-/* href link color for any element which has this class */
-.btn-link{
-    color:{{primary_button.background_color}};
+.btn-default,
+.btn-primary,
+.btn-danger{
+    box-shadow: inset 0 -2px 0px rgba(0, 0, 0, 0.07);
+    -webkit-box-shadow: inset 0 -2px 0px rgba(0, 0, 0, 0.07);
 }
 
-/* Font color of help text container */
-.help-block{
+/* Background, border color and text color for default form buttons */
+.btn-default,
+.btn-default:hover,
+.btn-default:focus,
+.btn-default[disabled],
+.btn-default[disabled]:hover,
+.btn-default[disabled]:focus{
+    background:{{button.default_background_color}};
+    border-color:{{button.default_border_color}};
+    color:{{button.default_text_color}};
+}
+
+/* Background, border color and text color for primary form buttons */
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary[disabled],
+.btn-primary[disabled]:hover,
+.btn-primary[disabled]:focus{
+    background:{{button.primary_background_color}};
+    border-color:{{button.primary_border_color}};
+    color:{{button.primary_text_color}};
+}
+
+/* Background, border color and text color for primary form buttons */
+.btn-danger,
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger[disabled],
+.btn-danger[disabled]:hover,
+.btn-danger[disabled]:focus{
+    background:{{button.danger_background_color}};
+    border-color:{{button.danger_border_color}};
+    color:{{button.danger_text_color}};
+}
+
+/*Block level help text for form controls.*/
+.help-block {
     color:{{text.help_text_color}};
+}
+
+/*dropdown menu contains panel section*/
+.dropdown-menu.panel{
+    border:1px solid {{input.border_color}};
+}
+
+/*dropdown menu contains panel heading background and text color*/
+.dropdown-menu>.panel-heading{
+    background:{{section.heading_background_color}};
+    color:{{section.heading_text_color}};
+}
+
+/*************************************************************
+ Header and Footer with Bootstrap and ChargeBee style.
+**************************************************************/
+
+/* Header background and text color */
+.navbar-static-top{
+    background:{{header.background_color}};
+    color:{{header.title_color}};
+}
+
+/* Brand Logo height reset and Brand text color */
+.navbar-brand {
+    height:auto;
+    color:{{header.title_color}};
+}
+
+/* Footer background, text color and few spacing style. */
+.navbar-static-bottom {
+    line-height: 23px;
+    padding: 15px 0;
+    margin: 0;
+    border-radius: 0;
+    text-align: center;
+    color:{{footer.text_color}};
+    background:{{footer.background_color}};
+}
+
+/*Need sticky footer, just add the "cb-sticky-footer" identifier in the HTML.*/
+#cb-sticky-footer{
+    margin:0!important;
+}
+
+/************************************************************
+ Boostrap style override especially for Portal
+ ************************************************************/
+
+/* Label not used in form*/
+.control-label {
+    color:{{text.alter_label_color}};
+}
+
+/* Break words between any two letters*/
+.form-horizontal .control-label,
+.form-horizontal .form-control-static{
+    word-break: break-word;
+}
+
+/*
+ * Navigation dropdown menu on top of the header band
+ */
+.navbar-collapse > .navbar-nav a{
+    color:{{header.title_color}};
+}
+.navbar-toggle,
+.navbar-collapse > .navbar-nav > .dropdown{
+    margin-top: 12px;
+    font-size:13px;
+    font-family:arial,sans-serif;
+}
+.navbar-collapse > .navbar-nav > .dropdown > a{
+    min-width: 130px;
+    padding: 5px 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.navbar-collapse > .navbar-nav > .dropdown > a:focus{
+    background: none;
+}
+.navbar-collapse > .navbar-nav a:hover,
+.navbar-collapse > .navbar-nav > .dropdown > a:hover,
+.navbar-collapse > .navbar-nav > .dropdown.open > a,
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus{
+    color:#000;
+    background: #fff;
+    box-shadow: 0px 2px 12px rgba(0,0,0,.175);
+}
+.navbar-collapse  .navbar-nav .dropdown-menu{
+    border: none;
+    min-width: 130px;
+    margin-top: -2px;
+}
+.navbar-collapse .navbar-nav .dropdown-menu a{
+    color: #000;
+    font-size:13px;
+    padding:3px 10px;
+}
+.navbar-collapse .navbar-nav .dropdown-menu a:hover{
+    background: #f7f7f7;
+}
+.nav .caret{
+    border-top-color: {{header.title_color}};
+    border-bottom-color: {{header.title_color}};
+}
+.nav a:hover .caret,
+.nav .open > a .caret,
+.nav .open > a:hover .caret,
+.nav .open > a:focus .caret{
+    border-top-color: #000;
+    border-bottom-color: #000;
+}
+
+/*on mobile the dropdown menu icon background color*/
+.navbar-toggle .icon-bar{
+    background:{{header.title_color}};
+}
+
+/* space out and segment sections of content*/
+.page-header{
+    border-color:{{section.border_color}};
+}
+
+/* adjust space*/
+.page-header + .table{
+    margin-top:-10px;
+}
+
+/*basic alert messages.*/
+.alert{
+    background: transparent;
+    border-radius:0;
+    border-left-width:3px;
+}
+
+/*centred the alert messages.*/
+.text-center  > .alert{
+    display:inline-block;
+}
+
+
+/*info alert message background and text color.*/
+.alert-info{
+    border-color:{{alert.info_border_color}};
+    color:{{alert.info_text_color}};
+}
+
+/*warning alert message background and text color.*/
+.alert-warning{
+    border-color:{{alert.warning_border_color}};
+    color:{{alert.warning_text_color}};
 }
 
 /**
  * ChargeBee's custom styles - These styles are defined to ensure better styling of various sections.
  **/
- 
-/* Horizontal line or border style */
-.dashed{
-    border-style:dashed;
+
+/**********************************************************
+ ChargeBee styled for both Hosted page and Portal
+***********************************************************/
+
+/*combo box placeholder color*/
+.cb-select-placeholder {
+    color: #999;
 }
 
-/* Styles for sticky footer. */
-.navbar-static-bottom{
-    line-height:25px;
-    padding:15px 0;
-    margin:0;
-    border-radius:0;
-    text-align:center;
-    color:{{footer.text_color}};
-    background:{{footer.background_color}};    
+/*combo box placeholder color on change*/
+.cb-select-opt {
+    color:{{input.text_color}};
 }
 
-/* This holds the whole form content from ChargeBee */
-#cb-wrapper-hp{
-	margin-bottom:30px;
-}
-
-/* Heading color and top margin space inside form */
-#cb-wrapper-hp h3{
-    color:{{section.title_color}};
-    margin-top:7px;    
-}
-
-/* Background, border color and font color for default form buttons */
-#cb-wrapper-hp .btn-default{
-    background:{{default_button.background_color}};
-    border-color:{{default_button.border_color}};
-    color:{{default_button.text_color}};    
-}
-
-/* Background, border color and font color for primary form buttons */
-#cb-wrapper-hp .btn-primary{
-    background:{{primary_button.background_color}};
-    border-color:{{primary_button.border_color}};
-    color:{{primary_button.text_color}};    
-}
-
-/* Padding space and font size for primary form buttons */
-#cb-wrapper-hp .btn-primary{
-    padding-left:35px;
-    padding-right:35px;
-    font-size:16px;
-}
-
-/* Font size, background and border style for order summary  section 
- * #cb-main-content is the identifier for Order summary container in checkout page 
- * & Existing card details in update card page.
- */
-#cb-main-content{
-    font-size:13px;
-    line-height:22px;
-    background:{{main_section.background_color}};
-    border: 1px solid {{main_section.border_color}};
-}
-
-/* Styles for heading inside order summary. */
-#cb-main-content h3{
-    background: {{main_section.title_background_color}};
-    color:{{main_section.title_color}};
-    border-radius:5px 5px 0 0;
-    -moz-border-radius:5px 5px 0 0;
-    -webkit-border-radius:5px 5px 0 0;
-    margin: -6px -10px 10px -10px;
-    padding:9px;
-}
-
-/* Reduce default bottom space on order lineitems list */
-#cb-main-content ul{
-    margin-bottom:0;
-}
-
-/* Horizontal line */
-#cb-main-content hr{
-    margin:5px 0;
-}
-
-/* Fix max width for input group(VAT form input group) */
-#cb-main-content .input-group{
-    max-width:250px;
-}
-
-/*Blocks inside the form, each section with identifier for custom styling */
-#cb-main-content,
-#cb-account,
-#cb-billing-shipping,
-#cb-payment,
-#cb-sidebar{    
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    margin-bottom:15px;
-    padding:5px 9px 10px 9px;
-}
-#cb-account,
-#cb-billing-shipping,
-#cb-payment,
-#cb-sidebar{
-    background-color: {{section.background_color}};
-    border: 1px solid {{section.border_color}};
+/* border dashed for any element which has this class */
+.dashed {
+    border-style: dashed;
 }
 
 /*
- * Styles that are specific for iframe embedded hosted page.
+ * #cb-wrapper-hp holds the whole form content from ChargeBee Hosted Checkout and Card Page
+ * #cb-wrapper-ssp holds the whole form content from ChargeBee Portal
  */
-#chargebee-iframe #cb-wrapper-hp{
-    max-width:510px;
-    {{#iframe.center}} margin: auto; {{/iframe.center}}
-	{{#iframe.show_border}}border: 1px solid {{iframe.border_color}};{{/iframe.show_border}}
+
+{{^checkout.use_aside}}
+#cb-wrapper-hp{
+    margin-left: auto;
+    margin-right:auto;
+    max-width:520px;
+}
+{{/checkout.use_aside}}
+
+{{^card.use_aside}}
+#cb-wrapper-hp{
+    margin-left: auto;
+    margin-right:auto;
+    max-width:520px;
+}
+{{/card.use_aside}}
+
+
+/*horizontal line spacing*/
+#cb-wrapper-hp hr,
+#cb-wrapper-ssp hr,
+.cb-well hr{
+    margin: 7px 0;
+    border-color:{{section.border_color}};
 }
 
-/* media queries start here */
-@media (min-width:768px){
-    .navbar>.container .navbar-brand{
-        margin-left:-8px;
+#cb-wrapper-hp,
+#cb-wrapper-ssp{
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Heading color and top margin space inside form */
+#cb-wrapper-hp h3,
+#cb-wrapper-ssp h3,
+#cb-wrapper-ssp .page-header{
+    margin:0 0 9px;
+}
+
+/*Section with identifier for custom styling in hosted page and portal */
+/*The "cb-well" class used for the purpose of background, border and spacing. Don't use the override the class until know the purpose of it.*/
+#cb-main-content,
+#cb-billing-shipping,
+#cb-account,
+#cb-payment,
+.cb-well{
+    /*-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);*/
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    margin-bottom: 15px;
+    padding:15px;
+    background-color:{{section.background_color}};
+    border: 1px solid {{section.border_color}};
+}
+
+/*Links are underline inside this class*/
+.cb-well a{
+    text-decoration:underline;
+}
+
+/**********************************************************
+ ChargeBee styled especially for Hosted page
+***********************************************************/
+
+/* Main form submit button large*/
+#cb-wrapper-hp .btn-primary {
+    padding-left: 35px;
+    padding-right: 35px;
+    font-size: 16px;
+}
+
+/*Identifier for Order summary container in checkout page & Existing card details in update card page.*/
+#cb-main-content {
+    line-height: 22px;
+}
+
+/* Styles for heading inside order summary and card details page. */
+#cb-main-content h3 {
+    background:{{section.heading_background_color}};
+    color:{{section.heading_text_color}};
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    margin: -16px -16px 9px -16px;
+    padding: 9px 15px;
+}
+
+/* Reduce default bottom space on order line items list */
+#cb-main-content ul {
+    margin-bottom: 0;
+}
+
+/* Fix max width for input group(Coupon filed comes in the order summary section to apply discount) */
+#cb-main-content .input-group {
+    max-width: 250px;
+}
+
+/*order total font size larger*/
+#cb-order-total{
+    font-size:16px;
+}
+
+/*
+ * Styles that are specific for iframe embedded hosted page using API.
+ */
+#chargebee-iframe #cb-wrapper-hp {
+    max-width: 510px;
+    {{#iframe.center}} margin: auto; {{/iframe.center}}
+    {{#iframe.use_border}}border: 1px solid {{iframe.border_color}};{{/iframe.use_border}}
+}
+
+/**********************************************************
+ ChargeBee styled especially for Portal
+***********************************************************/
+
+/*reduce the margin space due to error comes on bottom*/
+#cb-wrapper-ssp .form-group{
+    margin-bottom:0;
+}
+
+/*icon for the help text*/
+.cb-icon-help{
+    width:18px;
+    height:18px;
+    display:inline-block;
+    background:url(../images/cb-icon-help.png)no-repeat;
+    cursor:pointer;
+    margin:0 0 -4px 2px;
+}
+
+/*#cb-progress identifier handle the alert and loading*/
+#cb-handle-progress{
+    position:relative;
+}
+
+/*basic alert override to be flash message*/
+.cb-alert-flash{
+    text-align: center;
+    z-index: 999;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:0;
+}
+
+.cb-alert-flash .alert,
+.cb-alert-flash .loader{
+    background:#fff;
+    border:1px solid #ddd;
+    display: inline-block;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.05);
+    -moz-box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.05);
+    box-shadow:0 0 10px 0 rgba(0, 0, 0, 0.05);
+    padding:4px 8px;
+}
+
+.cb-alert-flash .alert-success{
+    color:#69ad22;
+}
+
+.cb-alert-flash .alert-warning{
+    color:#e8ba4a;
+}
+
+.cb-alert-flash .alert-danger{
+    color:#cc3335;
+}
+
+.cb-alert-flash .alert .glyphicon{
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.cb-alert-flash .loader .cb-process{
+    padding:1px 12px;
+}
+
+/*Subscripiton status*/
+.cb-subscription-status{
+    padding: 1px 6px;
+    font-size: 11px;
+    border-radius: 5px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 5px;    
+    text-transform: uppercase;
+    position: relative;
+    top: -4px;
+    color: {{subscription_status.text_color}};
+}
+
+/*Subscripiton status future background color*/
+.cb-subscription-status.future{
+    background:{{subscription_status.future}};
+}
+
+/*Subscripiton status in trial background color*/
+.cb-subscription-status.in_trial{
+    background:{{subscription_status.in_trial}};
+}
+
+/*Subscripiton status active background color*/
+.cb-subscription-status.active{
+    background:{{subscription_status.active}};
+}
+
+/*Subscripiton status non renewing background color*/
+.cb-subscription-status.non_renewing{
+    background:{{subscription_status.non_renewing}};
+}
+
+/*Subscripiton status cancelled background color*/
+.cb-subscription-status.cancelled{
+    background:{{subscription_status.cancelled}};
+}
+
+/*Identifier contains the login,signup,change password,manage subscription,account,billing form.*/
+#cb-user-content{
+    margin:0 auto;
+    max-width:480px;
+}
+
+/*
+ * #cb-content hold the contents of account,billing,shipping,card,invoice details.
+ */
+
+/*horizontal line*/
+#cb-content hr{
+    border-style:dashed;   
+}
+
+/*heading text formatting to bold*/
+#cb-content .h3,
+#cb-content .h4{
+    font-weight:bold;
+}
+
+/*Order list border bottom and spacing*/
+.cb-subscribed-items li{
+    padding:7px 0;
+    border-bottom:1px dashed {{section.border_color}};
+}
+
+/*Order total font size increase*/
+.cb-subscribed-total{
+    font-size:28px;
+}
+
+/*Invoice table border top & bottom*/
+#cb-portal-invoice-table{
+    border-top:1px solid {{section.border_color}};
+    border-bottom:1px solid {{section.border_color}};
+}
+
+/*Invoice table border color*/
+#cb-portal-invoice-table td{
+    border-color:{{section.border_color}};
+}
+
+/*Subscription manage list styled, border bottom and spacing*/
+.cb-subscription-manage dl{
+    padding:12px 0;
+    margin:0;
+}
+
+/*Subsciption more the one has border on top*/
+.cb-subscription-manage dl + dl{
+    border-top:1px dashed {{section.border_color}};
+}
+
+/*override the padding*/
+.cb-subscription-manage dt,
+.cb-subscription-manage dd{
+    padding:0;
+}
+
+/*glyphicon spacing for specific places*/
+#cb-content .page-header a .glyphicon,
+#cb-portal-invoice-table .glyphicon{
+    margin:0 5px;
+}
+
+/*Invoice success color*/
+#cb-portal-portal-invoices .text-success{
+    color:#69ad22;
+}
+
+/*Invoice payment due color*/
+#cb-portal-portal-invoices .text-warning{
+    color:#e8ba4a;
+}
+
+/*Invoice Not paid color*/
+#cb-portal-portal-invoices .text-danger{
+    color:#cc3335;
+}
+
+/*
+ * Media queries to assign different style depending on browser window size.
+ */
+@media (min-width: 768px) {
+    /*logout link for api users*/
+    .cb-api-logout,
+    .cb-api-logout:hover{
+        background:none!important;
+        color:{{header.title_color}}!important;
+        text-decoration:underline!important;
+        margin-top:2px;
     }
-    #cb-main-content strong{
-        font-weight:normal;
+}
+@media (min-width: 600px) {
+    .navbar > .container .navbar-brand {
+        margin-left:0;
+        padding-left:0;
+    }
+    .navbar > .container > .navbar-header,
+    .navbar > .container > .navbar-collapse ,
+    .navbar-nav.navbar-right:last-child{
+        margin-left:0;
+        margin-right:0;
+    }
+    #cb-main-content strong {
+        font-weight: normal;
+    }
+    #cb-handle-progress{
+        min-height: 50px;
+    }
+    .cb-portal-invoice-desc{
+        max-width:265px;
+        display:inline-block;
+    }
+    .cb-portal-invoice-details{
+        margin-left:13px;
     }    
 }
-@media (min-width:600px){
-    .col-sm-12{float:left;width:100%;}
-    .col-sm-11{float:left;width:91.66666666666666%;}
-    .col-sm-10{float:left;width:83.33333333333334%;}
-    .col-sm-9{float:left;width:75%;}
-    .col-sm-8{float:left;width:66.66666666666666%;}
-    .col-sm-7{float:left;width:58.333333333333336%;}
-    .col-sm-6{float:left;width:50%;}
-    .col-sm-5{float:left;width:41.66666666666667%;}
-    .col-sm-4{float:left;width:33.33333333333333%;}
-    .col-sm-3{float:left;width:25%;}
-    .col-sm-2{float:left;width:16.666666666666664%;}
-    .col-sm-1{float:left;width:8.333333333333332%;}
-}
-@media (min-width:480px){
-    #chargebee-iframe .col-sm-12{float:left;width:100%;}
-    #chargebee-iframe .col-sm-11{float:left;width:91.66666666666666%;}
-    #chargebee-iframe .col-sm-10{float:left;width:83.33333333333334%;}
-    #chargebee-iframe .col-sm-9{float:left;width:75%;}
-    #chargebee-iframe .col-sm-8{float:left;width:66.66666666666666%;}
-    #chargebee-iframe .col-sm-7{float:left;width:58.333333333333336%;}
-    #chargebee-iframe .col-sm-6{float:left;width:50%;}
-    #chargebee-iframe .col-sm-5{float:left;width:41.66666666666667%;}
-    #chargebee-iframe .col-sm-4{float:left;width:33.33333333333333%;}
-    #chargebee-iframe .col-sm-3{float:left;width:25%;}
-    #chargebee-iframe .col-sm-2{float:left;width:16.666666666666664%;}
-    #chargebee-iframe .col-sm-1{float:left;width:8.333333333333332%;}
-}
-@media (max-width:480px){
-    h1,h2,h3,.h1,.h2,.h3{
-        font-size:18px;
-		margin-top:10px;
-    }   
-    .center-xs{
-        float:none!important;
-        clear:both;
-        text-align:center;
-        display:block;
+@media (max-width: 600px) {
+    h1, h2, h3, .h1, .h2, .h3 {
+        font-size: 18px;
+        margin-top: 10px;
     }
-    .center-xs + .center-xs{
+    h4, h5, h6, .h4, .h5, .h6{
+        font-size:15px;
+    }
+    .center-xs {
+        float: none !important;
+        clear: both;
+        text-align: center;
+        display: block;
+    }
+    .center-xs + .center-xs {
+        margin-top: 7px;
+    }
+    #cb-portal-invoice-table td {
+        display: block;
+        border: none;
+        text-align: right;
+        padding:5px;
+    }
+    #cb-portal-invoice-table td[data-cb-invoice]:before {
+        content: attr(data-cb-invoice);
+        float: left;
+        color:{{text.alter_label_color}};
+    }
+    #cb-portal-invoice-table td:last-child{
+        border-bottom:1px solid {{section.border_color}}!important;
+    }
+}
+@media (min-width: 480px) {
+    #cb-content .page-header a{
         margin-top:7px;
+        float:right;
+    }
+    #chargebee-iframe .col-sm-12 {
+        float: left;
+        width: 100%;
+    }
+    #chargebee-iframe .col-sm-11 {
+        float: left;
+        width: 91.66666666666666%;
+    }
+    #chargebee-iframe .col-sm-10 {
+        float: left;
+        width: 83.33333333333334%;
+    }
+    #chargebee-iframe .col-sm-9 {
+        float: left;
+        width: 75%;
+    }
+    #chargebee-iframe .col-sm-8 {
+        float: left;
+        width: 66.66666666666666%;
+    }
+    #chargebee-iframe .col-sm-7 {
+        float: left;
+        width: 58.333333333333336%;
+    }
+    #chargebee-iframe .col-sm-6 {
+        float: left;
+        width: 50%;
+    }
+    #chargebee-iframe .col-sm-5 {
+        float: left;
+        width: 41.66666666666667%;
+    }
+    #chargebee-iframe .col-sm-4 {
+        float: left;
+        width: 33.33333333333333%;
+    }
+    #chargebee-iframe .col-sm-3 {
+        float: left;
+        width: 25%;
+    }
+    #chargebee-iframe .col-sm-2 {
+        float: left;
+        width: 16.666666666666664%;
+    }
+    #chargebee-iframe .col-sm-1 {
+        float: left;
+        width: 8.333333333333332%;
     }
 }

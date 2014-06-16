@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>          
-        <title>Error</title>       
-        <!--Favourite icon-->           
+    <head>
+        <!--Page title-->        
+        <title>{{{customer_portal.page_title}}}</title>
+        <!--Favourite icon-->        
         <link rel="shortcut icon" href='{{page.favicon}}'>        
         <meta charset="utf-8">
         <!--Viewport for Responsive layout-->
@@ -15,20 +16,36 @@
     <body>
         <div class="navbar navbar-static-top">
             <div class="container">
-                <div class="navbar-header">					
+                <div class="navbar-header">
                     {{#header.use_logo}}
                     <img src="{{header.logo}}" alt="{{{header.title}}}" class="navbar-brand img-responsive">
                     {{/header.use_logo}}
                     {{^header.use_logo}}
                     <span class="navbar-brand">{{{header.title}}}</span>
-                    {{/header.use_logo}}					
+                    {{/header.use_logo}}
+                    <!--Navigation menu icon bars on mobile.-->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 </div>
+                <!--Portal account menu settings.-->
+                <div data-cb-jshook="attach-account-dropdown"></div>
             </div>
         </div>
         <div class="container">
             <!--chargebee content start-->
             <div id="__CHARGEBEE_CONTENT__"></div>
             <!--chargebee content end-->
+        </div>
+        <!--inline style written to push the sticky footer. Will be removed later(until it's fixed).-->
+        <div style="min-height:100px"></div>
+        <!--Need sticky footer? Just add the "cb-sticky-footer" id.-->
+        <div class="navbar navbar-static-bottom" id="cb-sticky-footer">
+            <div class="container">
+                {{{footer.content}}}
+            </div>
         </div>
     </body>
 </html>

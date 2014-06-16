@@ -7,11 +7,14 @@ You can also install these themes directly from the gallery and make changes via
 ## File structure
 
 <pre>
-theme name
+theme_name
 	|-- templates
 		|-- checkout.html
-		|-- update_card.html
+		|-- update_card.html			
 		|-- iframe.html
+		|-- login.html
+		|-- portal.html
+		|-- edit.html
 		|-- error.html
 	|-- conf
 		|-- meta.json
@@ -29,10 +32,13 @@ All the files specified above are mandatory to be present in the theme zip befor
 * Templates:
     * For each hosted page - Checkout page, update card page there must be a template in the Templates folder. For example, for the Checkout page, there must be a template in the Templates folder with the name checkout.html.
     * The required files in the template folder are:
-        * checkout.html - The page inside which the Checkout page for both plan specific hosted pages & api based checkout pages are rendered
-        * update_card.html - The page inside which the Update card page is rendered.
-        * iframe.html - The page inside which the both the checkout & update card page is rendered when requesting the hosted pages for embedding inside iframe within your app.
-        * error.html - The page which is rendered with the error message in case of errors.
+        * checkout.html - The page inside which the Checkout page for both plan specific hosted pages & api based checkout pages are rendered.
+		* update_card.html - The page inside which the Update card page is rendered.
+		* iframe.html - The page inside which the both the checkout & update card page is rendered when requesting the hosted pages for embedding inside iframe within your app.
+		* login.html - The page which is used to render the customer portal login page along with options to request reset password and signup link.
+		* portal.html - The customer portal page which is used to render the account details, billing address, card details, invoices, subscription details and shipping address for a customer.
+		* edit.html - The customer portal page which is used to render the edit page for account details, billing address, card details and shipping address. This page is also used to render the cancel subscription page.
+		* error.html - The page which is rendered with the error message in case of errors while accessing the checkout page, update card page and customer portal pages.
 
 * Assets:
     * This holds the stylesheets and images used in the css.
