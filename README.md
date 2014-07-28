@@ -10,6 +10,7 @@ You can also install these themes directly from the gallery and make changes via
 theme_name
 	|-- templates
 		|-- checkout.html
+		|-- thank_you.html
 		|-- update_card.html			
 		|-- iframe.html
 		|-- login.html
@@ -25,19 +26,20 @@ theme_name
 		|-- images
 			|-- *.jpg,*.jpeg,*.gif,*.png,*.ico
 </pre>
-All the files specified above are mandatory to be present in the theme zip before upload.
+All the files specified above (except "thank_you.html") are mandatory to be present in the theme zip before upload.
 
 
 ## Overview
 * Templates:
     * For each hosted page - Checkout page, update card page there must be a template in the Templates folder. For example, for the Checkout page, there must be a template in the Templates folder with the name checkout.html.
     * The required files in the template folder are:
-        * checkout.html - The page inside which the Checkout page for both plan specific hosted pages & api based checkout pages are rendered.
+        * checkout.html - The page inside which the Checkout page for both plan specific hosted pages & API based checkout pages are rendered.
+		* thank_you.html - Page users will be forwarded to on completion of a successful checkout.
 		* update_card.html - The page inside which the Update card page is rendered.
 		* iframe.html - The page inside which the both the checkout & update card page is rendered when requesting the hosted pages for embedding inside iframe within your app.
 		* login.html - The page which is used to render the customer portal login page along with options to request reset password and signup link.
 		* portal.html - The customer portal page which is used to render the account details, billing address, card details, invoices, subscription details and shipping address for a customer.
-		* edit.html - The customer portal page which is used to render the edit page for account details, billing address, card details and shipping address. This page is also used to render the cancel subscription page.
+		* edit.html - The customer portal page which is used to render the edit page for account details, billing address, card details and shipping address. This page is also used to render the page for making subscription changes as well as canceling the subscription.
 		* error.html - The page which is rendered with the error message in case of errors while accessing the checkout page, update card page and customer portal pages.
 
 * Assets:
@@ -46,7 +48,7 @@ All the files specified above are mandatory to be present in the theme zip befor
 
 * Conf:
     * This holds the configuration options for the theme.
-    * meta.json - Configure all the options that can be modified for this theme from admin console
+    * meta.json - Configure all the options that can be modified for this theme from admin console.
     * presets.json - Provide various flavours in colors, texts of the themes.
 
 ## Documentation
