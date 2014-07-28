@@ -1,8 +1,8 @@
 {
     "meta": {
         "checkout_layout": "two_column",
-        "theme_version": "1.7",
-        "meta_version": "1.2",
+        "theme_version": "1.8",
+        "meta_version": "1.3",
         "bootstrap_version": "3.1.0"
     },
     "page": {
@@ -170,7 +170,7 @@
         },
         "primary_background_color": {
             "data_type": "color",
-            "label": "Primary background color"            
+            "label": "Primary background color"
         },
         "primary_border_color": {
             "data_type": "color",
@@ -179,7 +179,7 @@
         "default_text_color": {
             "data_type": "color",
             "label": "Secondary text color",
-            "desc": "Secondary refers to the Apply Coupon and Validate VAT number buttons that appear on the sign up page."            
+            "desc": "Secondary refers to the Apply Coupon and Validate VAT number buttons that appear on the sign up page."
         },
         "default_background_color": {
             "data_type": "color",
@@ -196,7 +196,7 @@
         },
         "danger_background_color": {
             "data_type": "color",
-            "label": "Critical action background color"            
+            "label": "Critical action background color"
         },
         "danger_border_color": {
             "data_type": "color",
@@ -206,7 +206,7 @@
     "section": {
         "meta": {
             "label": "Sections",
-            "desc": "Groups the content inside it such as order summary, account information, card information etc. Customize the look of these sections."
+            "desc": "Groups the content inside it such as order summary, account information, card information, portal change subscription steps etc. Customize the look of these sections."
         },
         "background_color": {
             "data_type": "color",
@@ -251,11 +251,37 @@
             "data_type": "boolean",
             "label": "Show sidebar",
             "desc": "Sidebar shown on the right side of the hosted checkout page."
-        },        
+        },
         "aside_content": {
             "data_type": "textarea",
             "label": "Sidebar content"
-        }   
+        }
+    },
+    "thankyou": {
+        "meta": {
+            "label": "Thanks",
+            "desc": "Customize the elements that are specific to the thank page."
+        },
+        "page_title": {
+            "data_type": "text",
+            "label": "Page title",
+            "desc": "The name of your thank page that appears at the top of your browser tab."
+        },
+        "page_heading": {
+            "data_type": "text",
+            "label": "Page heading",
+            "desc": "Heading displayed above the image."
+        },
+        "content": {
+            "data_type": "textarea",
+            "label": "Content",
+            "desc": "Text displayed above the image."
+        },
+        "image": {
+            "data_type": "image",
+            "label": "Image",
+            "desc": "Success/Product image in thank page."
+        }
     },
     "card": {
         "meta": {
@@ -281,7 +307,7 @@
             "data_type": "boolean",
             "label": "Show sidebar",
             "desc": "Sidebar shown on the right side of the hosted card page."
-        },        
+        },
         "aside_content": {
             "data_type": "textarea",
             "label": "Sidebar content"
@@ -367,7 +393,7 @@
         "background_color": {
             "data_type": "color",
             "label": "Background color"
-        }        
+        }
     },
     "iframe": {
         "meta": {

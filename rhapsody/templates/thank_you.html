@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>  
+    <head>
         <!--Page title-->
-        <title>{{{checkout.page_title}}}</title>        
-        <!--Favourite icon-->        
-        <link rel="shortcut icon" href='{{page.favicon}}'>        
+        <title>{{{thankyou.page_title}}}</title>
+        <!--Favourite icon-->
+        <link rel="shortcut icon" href='{{page.favicon}}'>
         <meta charset="utf-8">
         <!--Viewport for Responsive layout-->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -22,33 +22,20 @@
                     {{/header.use_logo}}
                     {{^header.use_logo}}
                     <span class="navbar-brand">{{{header.title}}}</span>
-                    {{/header.use_logo}}					
+                    {{/header.use_logo}}
                 </div>
             </div>
         </div>
         <div class="container">
-            {{#checkout.use_page_heading}}
-            <div class="h3 text-center">
-                {{{checkout.page_heading}}}
-                <hr class='clearfix dashed'>
+            <div class="text-center">
+                <h3>{{{thankyou.page_heading}}}</h3>
+                <p class="lead">{{{thankyou.content}}}</p>
             </div>
-            {{/checkout.use_page_heading}}
-            {{#checkout.use_aside}}
-            <div class="row">
-                <div class="col-sm-8">
-                    {{/checkout.use_aside}}
-                    <!--chargebee content start-->
-                    <div id="__CHARGEBEE_CONTENT__"></div>
-                    <!--chargebee content end-->
-                    {{#checkout.use_aside}}
-                </div>
-                <div class="col-sm-4 hidden-xs">                    
-                    <div class="cb-well">                    
-                        <div>{{{checkout.aside_content}}}</div>                                                
-                    </div>
-                </div>			
-            </div>
-            {{/checkout.use_aside}}
+            <img src="{{thankyou.image}}" class="img-responsive center-block"><br>
+            <!--chargebee content start-->
+            <div id="__CHARGEBEE_CONTENT__"></div>
+            <!--chargebee content end-->
+            <br><br>
         </div>
         <!--Need sticky footer? Just add the "cb-sticky-footer" id.-->
         <div class="navbar navbar-static-bottom" id="cb-sticky-footer">
