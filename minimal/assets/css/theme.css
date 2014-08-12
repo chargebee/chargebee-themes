@@ -728,6 +728,7 @@ address{
 .cb-product-step.done.active{
     color:{{section.heading_background_color}};
     background:{{section.heading_text_color}};
+    cursor:pointer;
 }
 .cb-product-step.active.done:before{
     border-left-color:{{section.heading_text_color}};
@@ -747,6 +748,12 @@ address{
     pointer-events:none;
     cursor: default;
     background: {{section.border_color}};
+}
+.cb-product-step.future.disabled:after{
+    border-left-color: {{section.background_color}};
+}
+.cb-product-step.future.disabled:before{    
+    border-left-color: {{section.border_color}};
 }
 /*Change Subscription current product*/
 .cb-product-box{
@@ -781,9 +788,14 @@ address{
     overflow-y:auto;
     margin-bottom:15px;
 }
+.cb-available-list .radio,
+.cb-available-list .checkbox{
+    margin-top:7px;
+    margin-bottom:7px;
+}
 /*Change subscription avialable product list on plan, highlight the current product*/
 .cb-has-select .cb-available-item{
-    padding:0 3px;
+    padding:0 7px;
     margin:3px 0;
     border-radius: 3px;
     -moz-border-radius: 3px;
