@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Page title-->
+        <title>{{{thankyou.page_title}}}</title>
+        <!--Favourite icon-->
+        <link rel="shortcut icon" href='{{page.favicon}}'>
+        <meta charset="utf-8">
+        <!--Viewport for Responsive layout-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <!--Bootstrap & ChargeBee compiled CSS -->
+        <link href="http://themes.chargebee.com/static/app-static-assets/cdn-tpl_theme-1.0.5/stylesheets/core_v2.css" rel="stylesheet" media="screen" type="text/css">
+        <!-- CSS based on the configured preset -->
+        <link href="{{theme_preset_css}}" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <section class="center-block container-portal">
+            <header id="header" class="clearfix text-center">
+                <a href="{{{header.url}}}" class="logo">
+                {{#header.use_logo}}
+                    <img src="{{header.logo}}" alt="{{{header.title}}}" class="img-responsive center-block">
+                {{/header.use_logo}}
+                {{^header.use_logo}}
+                    {{{header.title}}}
+                {{/header.use_logo}}
+                </a>
+            </header>
+            <div class="content">
+                {{{thankyou.content}}}
+                <br>
+                <img src="{{thankyou.image}}" alt="thank" class="img-responsive">
+                <br>
+                <div class="thankyou-content"><!--to override the cluttered text-->
+                    <!--chargebee content start-->
+                    <div id="__CHARGEBEE_CONTENT__"></div>
+                    <!--chargebee content end-->
+                </div>
+            </div>          
+        </section>
+    </body>
+</html>
