@@ -2,7 +2,32 @@
  * Please do not edit the placeholder variables here. You can configure them on conf/presets.json.
  * Bootrstrap version 3.1.0
  * NOTE: Some of the Twitter Bootstrap's default style classes are modified to suit better.
- **/
+
+#cb-wrapper-hp                          //checkout, add/update card
+|-- #cb-main-content                    //order summay and existing card details
+    |-- #cb-order
+    |-- #cb-existing-card
+|-- #cb-main-form                       //account, billing, shipping, payment(card) form fields,
+    |-- #cb-account
+    |-- #cb-billing
+    |-- #cb-shipping
+    |-- #cb-payment
+|-- #cb-payment-method                  //amazon,paypal,bank account radio fields
+|-- #cb-payment-method-type             //amazon,paypal,bank account section
+|-- #cb-payment-wrapper                 //amazon,paypal,bank account content filled
+
+#cb-wrapper-ssp                         //customer portal
+|-- #cb-user-content                    //portal login,edit,change subscription forms
+    |-- #cb-payment-method
+    |-- #cb-payment-method-type
+    |-- #cb-payment-wrapper
+|-- #cb-content                         //portal details
+
+#chargebee-iframe                       //api checkout,card,portal pages
+|-- #cb-wrapper-hp
+|-- #cb-wrapper-ssp
+
+**/
 
 /*google fonts import*/
 @import url(//fonts.googleapis.com/css?family={{{typography.google_font}}});
@@ -14,28 +39,38 @@ html,body{
     min-height: 100%;    
 }
 /* Body*/
-body {
-    padding: 5px;
+body {    
     color:{{text.text_color}};
     font-family:{{typography.body}};
-    background:{{body.background_color_left_top}};     
-    background: -moz-linear-gradient(-45deg,  {{body.background_color_left_top}} 25%, {{body.background_color_right_bottom}} 84%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(25%,{{body.background_color_left_top}}), color-stop(84%,{{body.background_color_right_bottom}})); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-45deg,  {{body.background_color_left_top}} 25%,{{body.background_color_right_bottom}} 84%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-45deg,  {{body.background_color_left_top}} 25%,{{body.background_color_right_bottom}} 84%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-45deg,  {{body.background_color_left_top}} 25%,{{body.background_color_right_bottom}} 84%); /* IE10+ */
-    background: linear-gradient(135deg,  {{body.background_color_left_top}} 25%,{{body.background_color_right_bottom}} 84%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='{{body.background_color_left_top}}', endColorstr='{{body.background_color_right_bottom}}',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-    {{#body.use_background_image}}
-        background:{{body.background_color_left_top}} url({{body.background_image}});
-        {{^body.tile_background_image}}            
-            background-repeat:no-repeat;
-            background-position:center top;
-            background-size:cover;
-            background-attachment: fixed;
-        {{/body.tile_background_image}}
-    {{/body.use_background_image}}
+    background-color:{{body.background_color}};        
 }
+{{#body.use_background_image}}
+body:before,
+body:after{
+    content: "";
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+body:before{
+    z-index: -2;
+    background-image: url({{body.background_image}});
+    {{^body.tile_background_image}}
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:cover;
+    background-attachment: fixed;    
+    {{/body.tile_background_image}}    
+}
+{{#body.overlay_background_image}}
+body:after{
+    background-color: rgba(0, 0, 0, {{{body.overlay}}});
+}
+{{/body.overlay_background_image}}
+{{/body.use_background_image}}
 strong{
     font-weight: normal;
 }
@@ -120,14 +155,15 @@ a.text-danger:hover{
     height: 40px;
 }
 /* input element */
-.form-control {    
-    border-width: 2px;    
+.form-control,
+.input-group-addon {    
     box-shadow:none;
     -moz-box-shadow:none;
     -webkit-box-shadow:none;
-    background:{{input.background_color}};
+    border-width: 2px;
     border-color:{{input.border_color}};
-    color:{{input.text_color}};    
+    background:{{input.background_color}};    
+    color:{{input.text_color}};
 }
 .form-control:focus {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -201,6 +237,12 @@ a.text-danger:hover{
     width:100%;
 }
 
+/*Invoice table in portal*/
+.table-hover>tbody>tr:hover>td, 
+.table-hover>tbody>tr:hover>th{
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
 /************************************************************
  Boostrap style override especially for Portal
  ************************************************************/
@@ -213,7 +255,7 @@ a.text-danger:hover{
 /*Used on portal details page show static data*/
 .form-horizontal .control-label,
 .form-horizontal .form-control-static{
-    word-break: break-word;
+    word-wrap: break-word;
 }
 
 /*
@@ -221,7 +263,7 @@ a.text-danger:hover{
  */
 /*Navigation links on portal*/
 .navbar-collapse > .navbar-nav a{
-    color:{{header.title_color}};
+    color:{{text.link_color}};
 }
 /*Account links toggle*/
 .navbar-collapse > .navbar-nav > .dropdown,
@@ -229,7 +271,7 @@ a.text-danger:hover{
     font-size:13px;
     font-family:arial,sans-serif;
     margin:0;
-    margin-top: {{{customer_portal.account}}};
+    margin-top: {{{portal.account}}};
 }
 /*Account dropdown*/
 .navbar-collapse > .navbar-nav > .dropdown > a{
@@ -238,7 +280,8 @@ a.text-danger:hover{
     border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
-    border: 2px solid {{header.title_color}};
+    color:{{header.title_color}};
+    border:2px solid {{header.title_color}};
 }
 .navbar-collapse > .navbar-nav > .dropdown > a:focus{
     background: none;
@@ -249,9 +292,9 @@ a.text-danger:hover{
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus{
-    color:#000;
-    background:#fff;
-    border-color: #fff;
+    color:{{text.link_color}};
+    background:{{section.background_color}};
+    border-color:{{section.background_color}};
 }
 .navbar-collapse > .navbar-nav > .dropdown.open > a{
     box-shadow: 0 2px 12px rgba(0,0,0,.175);
@@ -262,27 +305,29 @@ a.text-danger:hover{
 .navbar-collapse  .navbar-nav .dropdown-menu{
     border: none;
     min-width: 135px;
-    margin-top: -2px;
+    margin-top: -3px;
+    background:{{section.background_color}};
 }
 /*Account dropdown menu links*/
-.navbar-collapse .navbar-nav .dropdown-menu a{
-    color:#000;
+.navbar-collapse .navbar-nav .dropdown-menu a{    
     font-size:13px;
     padding:3px 10px;
+    color: {{text.link_color}};
 }
-.navbar-collapse .navbar-nav .dropdown-menu a:hover{
-    background:#f7f7f7;
+.navbar-collapse .navbar-nav a:hover{
+    background:{{text.link_color}};
+    color:{{section.background_color}};
 }
 .nav .caret{
-    border-top-color: {{header.title_color}};
-    border-bottom-color: {{header.title_color}};
+    border-top-color:{{header.title_color}};
+    border-bottom-color:{{header.title_color}};
 }
 .nav a:hover .caret,
 .nav .open > a .caret,
 .nav .open > a:hover .caret,
 .nav .open > a:focus .caret{
-    border-top-color:#000;
-    border-bottom-color:#000;
+    border-top-color:{{text.link_color}};
+    border-bottom-color:{{text.link_color}};
 }
 
 /*Account dropdown menu icon on mobile*/
@@ -317,6 +362,7 @@ a.text-danger:hover{
 /*centred the alert messages.*/
 .text-center > .alert >.media{
     display:inline-block;
+    text-align:justify;
 }
 
 /*info alert message*/
@@ -336,31 +382,30 @@ a.text-danger:hover{
     border:1px solid {{input.border_color}};
 }
 
-/*Test cards dropdown section heading*/
-.dropdown-menu>.panel-heading{
-    background:{{section.heading_background_color}};
-    color:{{section.heading_text_color}};
-}
-
 /****************************************************************
  Header and footer styled for Host and portal pages
 *****************************************************************/
 #header{    
-    padding:15px 0;
+    padding:15px 0;    
 }
 #header .logo{
-    font-size: 24px;    
+    font-size: 24px;
     text-decoration: none;
     display: inline-block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-family: {{typography.title}};
     color: {{header.title_color}};
+    {{^header.center_logo}}float:left;{{/header.center_logo}}
 }
 #header .logo.pull-left{
     max-width:300px;
 }
 #header .logo img{
     max-height: 100px;
+}
+.container-hosted #header{
+    padding-left: 0;
+    padding-right: 0;
 }
 /**
  * ChargeBee's custom styles - These styles are defined to ensure better styling of various sections.
@@ -385,26 +430,16 @@ a.text-danger:hover{
     border-style: dashed;
 }
 
-/* Wrapper element (All the columns are wrapped inside this element) */
-.container-hosted,
-.container-portal{
-    max-width:680px;
-}
-.container-portal-login{
-    max-width: 340px;
-}
-.container-portal-edit{
-    max-width: 500px;
-}
-#portal_change_password_submit{
-    max-width: 300px;
-    margin: auto;
-}
-
 /*
  * #cb-wrapper-hp holds the content of ChargeBee Hosted Checkout and Card Page
  * #cb-wrapper-ssp holds the content of ChargeBee Portal
  */
+#cb-wrapper-hp,
+#cb-wrapper-ssp,
+.content{ /*thankyou, portal login page*/
+    padding: 20px;
+    background: {{section.background_color}};
+}
 
 /*Heading inside chargebee content on hosted pages*/
 #cb-wrapper-hp h3,
@@ -414,33 +449,26 @@ a.text-danger:hover{
     padding-bottom: 5px;
     font-size: 20px;
 }
+/*Portal details page heading*/
+#cb-content h3,
+#cb-content h4{
+    margin:0;
+    padding-bottom: 0;
+}
 
-#cb-main-content,
-#cb-main-form,
-.content,/*used in error and thank you html*/
-#cb-wrapper-ssp{
-    padding: 20px;
-    background: {{section.background_color}};
-}
-#cb-main-content{
-    line-height: 18px;
-    margin-bottom: 0;    
-}
-#cb-main-content li{
-    padding:5px 0;
-}
 /*Section with identifier for custom styling in hosted page and portal */
 /*The "cb-well" class used for the purpose of background, border and spacing. Don't use the override the class until know the purpose of it.*/
+#cb-account,
 #cb-billing,
 #cb-shipping,
-#cb-account,
 #cb-payment,
 .cb-well{
     margin-bottom: 10px;
     padding-bottom:10px;    
 }
-.cb-well .page-header a,
-.cb-step-nav a{
+
+.cb-well .page-header a,/*portal edit form link next to heading on right side.*/
+.cb-step-nav a{ /*portal change subscription prev,next navigation link*/
     padding: 2px 7px;
     font-size: 13px;
     border-radius: 20px;
@@ -448,7 +476,11 @@ a.text-danger:hover{
     -webkit-border-radius: 20px;
     text-decoration: none;
     display: inline-block;
+    margin-top: 3px;
     border:1px solid {{text.link_color}};
+}
+.cb-well .page-header a{
+    float: right;
 }
 .cb-well .page-header a:hover,
 .cb-step-nav a:hover{
@@ -456,33 +488,78 @@ a.text-danger:hover{
     background:{{text.link_hover_color}};
     color:{{section.background_color}};
 }
-.cb-well .page-header a{
-    float: right;
-}
 .cb-well .page-header a .glyphicon{
     margin-right: 5px;
 }
-/***************************************************************
- ChargeBee styled especially for Hosted checkout and card page
-****************************************************************/
 
+
+/************************************************************
+ Override the page by assing few class to make it looks good
+*************************************************************/
+/* Wrapper element (All the columns are wrapped inside this element) */
+.container-hosted,/*checkout, card pages*/
+.container-portal,/*thankyou, portal details pages*/
+.container-error{ /*error page*/
+    max-width:680px;
+}
+/*thankyou, portal login page*/
+.container-portal-login{
+    max-width: 340px;
+}
+/*thankyou, portal edit page*/
+.container-portal-edit{
+    max-width: 500px;
+}
+/*portal change password form*/
+#portal_change_password_submit{
+    max-width: 300px;
+    margin: auto;
+}
+/*error page*/
+.container-error .media{
+    display: inline-block;
+    padding: 20px;
+    color:#ffffff;
+    {{#error.use_background}}
+    background:rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    {{/error.use_background}}
+}
+.container-error .glyphicon{
+    font-size: 24px;    
+}
+.container-error .lead{
+    margin: 0;
+    text-align: left;
+}
 /*thank you page, portal signup override*/
 .content .cb-well{
     margin-bottom: 0;
     padding-bottom: 0;
 }
-/*Fix max width for input group(Coupon filed comes in the order summary section to apply discount) */
-#cb-main-content .input-group {
-    max-width: 260px;    
-}
 
+/***************************************************************
+ ChargeBee styled especially for Hosted checkout and card page
+****************************************************************/
+#cb-main-content{
+    line-height: 18px;
+    padding: 20px;
+}
+#cb-main-content li{
+    padding:5px 0;
+}
 /*Order total on checkout page*/
 #cb-order-total{
     font-size:16px;
 }
+/*Terms of service on checkout page*/
 #cb-tos a{
     text-decoration: underline;
 }
+/*cards on checkout and update/add card page*/
 #cb-cvv span{
     line-height: 12px;
     margin: 0 0 0 5px;
@@ -490,6 +567,7 @@ a.text-danger:hover{
     vertical-align: middle;
     white-space: normal;
 }
+
 /*
  * Styles that are specific for iframe embedded hosted page using API.
  */
@@ -497,6 +575,9 @@ a.text-danger:hover{
     max-width: 500px;
     {{#iframe.center}} margin: auto; {{/iframe.center}}
     {{#iframe.use_border}}border: 1px solid {{iframe.border_color}};{{/iframe.use_border}}
+}
+#chargebee-iframe #cb-main-content{
+    margin: -20px -20px 20px;
 }
 
 /**********************************************************
@@ -544,15 +625,15 @@ a.text-danger:hover{
 }
 
 .cb-alert-flash .alert-success{
-    color:#239D25;
+    color:#709D23;
 }
 
 .cb-alert-flash .alert-warning{
-    color:#e9c000;
+    color:#D8AD02;
 }
 
 .cb-alert-flash .alert-danger{
-    color:#c51e1e;
+    color:#BB3939;
 }
 
 .cb-alert-flash .alert .glyphicon{
@@ -573,6 +654,8 @@ a.text-danger:hover{
     -webkit-border-radius: 5px;
     position: relative;
     margin: 0 3px;
+    display: inline-block;
+    font-family: {{typography.body}};
     color: {{subscription_status.text_color}};
 }
 
@@ -636,7 +719,8 @@ a.text-danger:hover{
 }
 
 #cb-portal-invoice-table td{
-    border-color:{{section.border_color}};
+    white-space:nowrap;
+    border-color:{{section.border_color}};    
 }
 
 /*glyphicon on portal page*/
@@ -646,19 +730,25 @@ a.text-danger:hover{
 
 /*Invoice success color*/
 #cb-portal-portal-invoices .text-success{
-    color:#1EC546;
+    color:#709D23;
 }
 
 /*Invoice payment due color*/
 #cb-portal-portal-invoices .text-warning{
-    color:#F4C900;
+    color:#D8AD02;
 }
 
 /*Invoice Not paid color*/
 #cb-portal-portal-invoices .text-danger{
-    color:#C51E1E;
+    color:#BB3939;
 }
-
+/*Invoice table has description on portal details page*/
+.cb-portal-invoice-desc{
+    max-width:170px;
+    display:inline-block;
+    white-space: normal;
+    word-wrap: break-word;
+}
 /******************************
  Change Subscription on portal
  *****************************/
@@ -666,10 +756,6 @@ a.text-danger:hover{
 .cb-product-header{
     margin: -20px -20px 10px -20px;
     padding: 10px;
-    background-color:#ffffff;
-    border-radius: 5px 5px 0 0;
-    -moz-border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
     border-bottom:2px solid {{section.border_color}};
 }
 /*Change Subscription steps*/
@@ -725,22 +811,22 @@ a.text-danger:hover{
 }
 /*Change subscription previous step done and can be editable*/
 .cb-product-step.done.active{
-    color:{{section.heading_background_color}};
-    background:{{section.heading_text_color}};
     cursor:pointer;
+    color:{{portal.header_background_color}};
+    background:{{portal.header_text_color}};    
 }
 .cb-product-step.active.done:before{
-    border-left-color:{{section.heading_text_color}};
+    border-left-color:{{portal.header_text_color}};
 }
 /*Change subscription current step*/
 .cb-product-step.current{
     pointer-events:none;
     cursor: default;
-    background:{{section.heading_background_color}};
-    color:{{section.heading_text_color}};
+    background:{{portal.header_background_color}};
+    color:{{portal.header_text_color}};
 }
 .cb-product-step.current:before{
-    border-left-color:{{section.heading_background_color}};
+    border-left-color:{{portal.header_background_color}};
 }
 /*Change subscription next step with disabled*/
 .cb-product-step.future.disabled{
@@ -788,6 +874,7 @@ a.text-danger:hover{
     overflow-y:auto;
     margin-bottom:15px;
 }
+.cb-available-list hr,
 .cb-available-list .radio,
 .cb-available-list .checkbox{
     margin-top:7px;
@@ -849,14 +936,18 @@ a.text-danger:hover{
     .form-inline .form-group ~ .form-group {
         margin-left: 8px;
     }
+    {{^header.center_logo}}
+    #header{
+        padding-left: 30px;
+        padding-right: 30px;
+        max-width: 3000px;
+    }
+    {{/header.center_logo}}    
     .cb-subscription-status{
         top:-3px;
     }
-    /* Portal heading with links like(edit,add).
-       Change subscription step nav links like(previous, next)*/
-    .cb-well .page-header a,
-    .cb-step-nav{
-        margin-top:3px;
+    /*Change subscription step nav links like(previous, next)*/    
+    .cb-step-nav{        
         float:right;
     }    
     /*logout link for api users*/
@@ -865,20 +956,16 @@ a.text-danger:hover{
         background:none!important;
         text-decoration:underline!important;
         margin: 0;
-        margin-top: {{{customer_portal.account}}};
+        margin-top: {{{portal.account}}};
         color:{{header.title_color}}!important;
-    }
-    /*Invoice table has description on portal details page*/
-    .cb-portal-invoice-desc{
-        max-width:250px;
-        display:inline-block;
-    }
+    }    
     /*Invoice table has details on portal details page*/
     .cb-portal-invoice-details{
         margin-left:13px;
     }
-    /*Change Subscription product total*/
-    .cb-product-total{
+    /*Change Subscription product total*/  /*Change Subscription pick product quantity*/
+    .cb-product-total,
+    .cb-available-pick{
         text-align:right;
     }
     /*Change Subscription available product has qty*/
@@ -886,31 +973,24 @@ a.text-danger:hover{
     .cb-avail-has-qty .checkbox label{
         float:left;
         max-width:250px;
-    }
-    /*Change Subscription pick product quantity*/
-    .cb-available-pick{
-        text-align:right;
-    }
+    }    
 }
-@media (min-width:950px) {/*due to preview purpose we changed 992px to 950px*/
-    body{
-        padding-bottom: 50px;
-        padding-top: 50px;
-    }
-    .container-hosted #header{
-        max-width: 500px;
-    }
+@media (min-width:950px) {/*due to preview purpose we override the bootstrap 992px to 950px*/
     .container-hosted{
         max-width:900px;
-    }    
-    .container-hosted #cb-main-form{
+    }
+    /*NOTE: Don't remove "container-hosted", if remove it will affect api checkout, card pages.*/
+    .container-hosted #header,
+    .container-hosted #cb-wrapper-hp{
         width:500px;
     }
     .container-hosted #cb-main-content{
         width: 300px;
         min-height: 1px;        
         z-index: 1111;
-        margin-left: 600px;
+        margin-left: 580px;        
+        margin-top: -20px;
+        background: {{section.background_color}};
         position: {{#checkout.position}}fixed{{/checkout.position}}{{^checkout.position}}absolute{{/checkout.position}};
     }
     .container-hosted #cb-main-content h3{
@@ -918,40 +998,19 @@ a.text-danger:hover{
     }
 }
 @media (max-width: 949px) {
-    #cb-wrapper-hp{
-        background: {{section.background_color}};
-    }
     #cb-main-content{
-        background:rgba(0, 0, 0, 0.01);
+        background:rgba(0, 0, 0, 0.03);
+        margin: -20px -20px 20px;
         border-bottom: 3px solid {{section.border_color}};
+    }
+    #cb-main-content .input-group{
+        max-width: 300px;
     }
 }
 @media (max-width: 767px) {    
     h1, h2, h3, .h1, .h2, .h3 {
         font-size: 18px;
         margin-top: 10px;
-    }
-    .cb-main-footer .form-inline .form-group .btn,
-    #cb-wrapper-ssp .form-inline .form-group .btn,    
-    #cb-user-content form .cb-step-nav + .clearfix .btn,/*change subscription in portal*/
-    #cb-user-content form .cb-step-nav + .clearfix a,
-    #cb-user-content form .form-group + .text-center a/*change password in portal*/{
-        margin-bottom: 15px;
-        display: block;
-        width: 100%;
-    }
-    .cb-main-footer .form-inline .form-group a.btn,
-    #cb-wrapper-ssp .form-inline .form-group a.btn,    
-    #cb-user-content form .cb-step-nav + .clearfix a,
-    #cb-user-content form .form-group + .text-center a{        
-        text-decoration: none;
-        min-height: 40px;
-        padding: 10px;
-        line-height: 1;
-        border-radius: 2px;
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
-        border: 2px solid {{text.link_color}};
     }
     .center-xs {
         float: none !important;
@@ -962,34 +1021,70 @@ a.text-danger:hover{
     .center-xs + .center-xs {
         margin-top: 7px;
     }
+    #header{
+        padding-bottom: 0;
+    }
+    {{^header.center_logo}}
+    #header .logo{
+        margin-left:15px;
+    }
+    {{/header.center_logo}}
     #header .logo.pull-left{
-        max-width: 220px;       
+        max-width: 220px;
+        margin-left: 15px;      
     }
     #header .navbar-collapse{
         width: 100%;
         font-size: 13px;
+        background: {{section.background_color}};
+        border-bottom:3px solid {{section.border_color}};
     }
-    /*process center of the page on mobile for coupon and subscribe*/
-    #cb-wrapper-hp .cb-process{
+    #cb-content .cb-well{
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .cb-main-footer .form-inline .form-group .btn,
+    #cb-wrapper-ssp .form-inline .form-group .btn,    
+    #cb-user-content form .cb-step-nav + .clearfix .btn,/*change subscription in portal*/
+    #cb-user-content form .cb-step-nav + .clearfix a,
+    #cb-user-content form .form-group + .text-center a,/*change password in portal*/
+    #cb-payment-wrapper .form-inline .form-group .btn{
+        margin-bottom: 15px;
+        display: block;
+        width: 100%;
+    }
+    .cb-main-footer .form-inline .form-group a.btn,
+    #cb-wrapper-ssp .form-inline .form-group a.btn,    
+    #cb-user-content form .cb-step-nav + .clearfix a,
+    #cb-user-content form .form-group + .text-center a{
+        text-decoration: none;
+        min-height: 40px;
+        padding: 10px;
+        line-height: 1;
+        border-radius: 2px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        border: 2px solid {{text.link_color}};
+    }       
+    /*Process on mobile*/
+    #cb-wrapper-hp .cb-process,
+    #cb-handle-progress .loader{
         position: fixed;
-        width: 160px;
-        height: 30px;
-        top: 0;
-        background-color: #FFF;
         bottom: 0;
         left: 0;
         right: 0;
         z-index: 9999;
-        margin: auto;
-        border: 1px solid #DDD;
-        font-size: 13px;
+        background-color: #FFF;
+        color: #000;
         line-height: 18px;
-        background-position: 10px center;
-        border-radius: 3px;
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;
-        padding: 4px 8px 4px 35px;    
-        box-shadow: 0 0 8px #C0C0C0;    
+        padding: 15px;
+        border-width:0;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+    #cb-wrapper-hp .cb-process{
+        padding-left: 50px;
+        background-position: 20px center;
     }
     #cb-portal-invoice-table{
         margin-bottom: 0;
@@ -1008,11 +1103,12 @@ a.text-danger:hover{
     #cb-portal-invoice-table td:last-child{
         border-bottom:1px solid {{section.border_color}}!important;
     }
+    /*Invoice status icon and prev/next link section*/
     .cb-portal-invoice-details{
-        padding: 10px 3px;
-        background:rgba(0, 0, 0, 0.05);   
+        padding:15px 3px 10px;
+        background:rgba(0, 0, 0, 0.03);
     }
-    /*invoice prev/next*/
+    /*Invoice prev/next link*/
     .cb-portal-invoice-details span.text-muted,
     .cb-portal-invoice-details a{
         padding: 3px 10px;
@@ -1023,6 +1119,8 @@ a.text-danger:hover{
     }
     .cb-portal-invoice-details span.text-muted{
         border-color:{{text.help_text_color}};
+        background:{{text.help_text_color}};
+        color:{{section.background_color}};
     }
     .cb-portal-invoice-details a{
         border-color: {{text.link_color}};

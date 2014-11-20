@@ -1,7 +1,7 @@
 {
     "meta": {
         "checkout_layout": "two_column",
-        "theme_version": "1.9",
+        "theme_version": "2.0",
         "meta_version": "1.3",
         "bootstrap_version": "3.1.0"
     },
@@ -28,17 +28,22 @@
         "use_logo": {
             "data_type": "boolean",
             "label": "Use brand logo",
-            "desc": "Whether to show your brand logo in the header. If No, just the header title will be displayed."
+            "desc": "Whether to show your brand logo in the header. If No, just the brand name will be displayed."
+        },        
+        "center_logo": {
+            "data_type": "boolean",
+            "label": "Center aligned brand Logo",
+            "desc": "If you choose 'No' as an option, the logo would be left aligned in the header section."
         },
         "title": {
             "data_type": "text",
             "label": "Brand name",
-            "desc": "You can configure the title to be shown in the header section here. If logo is shown, this will not be displayed"
+            "desc": "If you're not using your brand's logo, we recommend you to enter the name of your company here."
         },
         "title_color": {
             "data_type": "color",
             "label": "Text color",
-            "desc": "Text color for the brand name, if displayed. Also used for the account menu in the customer portal."
+            "desc": "Choose a text color for the brand name, it will also be used for the account menu in the customer portal."
         },
         "background_color": {
             "data_type": "color",
@@ -77,6 +82,11 @@
         "meta": {
             "label": "Typography",
             "desc": "Fonts for the text content in the page. If you use typekit for your fonts, ensure you configure the typekit id in Common Settings and configure the fonts here."
+        },        
+        "google_font": {
+            "data_type": "text",
+            "label": "Import google font",
+            "desc": "You can import multiple fonts from Google. For example, to request the fonts Roboto, Raleway, and Lato, use: Roboto|Raleway|Lato"
         },
         "body": {
             "data_type": "text",
@@ -87,6 +97,11 @@
             "data_type": "text",
             "label": "Heading text font",
             "desc": "Font used for the all the headings on the hosted page."
+        },
+        "title": {
+            "data_type": "text",
+            "label": "Brand name text font",
+            "desc": "Font used for the brand name in the header section."
         }
     },
     "text": {
@@ -259,7 +274,7 @@
     },
     "thankyou": {
         "meta": {
-            "label": "Thanks",
+            "label": "Thank You",
             "desc": "Customize the elements that are specific to the thank page."
         },
         "page_title": {
@@ -322,6 +337,11 @@
             "data_type": "text",
             "label": "Page title",
             "desc": "The name of your portal page that appears at the top of your browser tab."
+        },        
+        "apple_touch_icon": {
+            "data_type": "image",
+            "label": "Apple touch icon",
+            "desc": "Assign a Webpage icon to your customer portal, for customers who use iOS devices." 
         }
     },
     "subscription_status": {
@@ -402,7 +422,7 @@
         },
         "center": {
             "data_type": "boolean",
-            "label": "Align center?",
+            "label": "Align center",
             "desc": "Specify whether to align the hosted page at center in the inside the iframe or not."
         },
         "border_color": {
@@ -412,7 +432,7 @@
         },
         "use_border": {
             "data_type": "boolean",
-            "label": "Show border?",
+            "label": "Show border",
             "desc": "Whether to show border for the iframe embed hosted page."
         }
     }

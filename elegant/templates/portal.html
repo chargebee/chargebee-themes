@@ -4,7 +4,9 @@
         <!--Page title-->
         <title>{{{customer_portal.page_title}}}</title>
         <!--Favourite icon-->
-        <link rel="shortcut icon" href='{{page.favicon}}'>        
+        <link rel="shortcut icon" href='{{page.favicon}}'>
+        <!--Apple touch icon for iOS devices-->        
+        <link rel="apple-touch-icon-precomposed" href="{{customer_portal.apple_touch_icon}}">        
         <meta charset="utf-8">
         <!--Viewport for Responsive layout-->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,7 +18,7 @@
     <body>
         <div class="navbar navbar-static-top">
             <div class="container">
-                <div class="navbar-header">					
+                <div class="navbar-header pull-left">					
                     {{#header.use_logo}}
                     <img src="{{header.logo}}" alt="{{{header.title}}}" class="navbar-brand img-responsive">
                     {{/header.use_logo}}

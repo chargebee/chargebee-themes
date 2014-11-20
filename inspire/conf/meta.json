@@ -1,7 +1,7 @@
 {
     "meta": {
         "checkout_layout": "flat",
-        "theme_version": "1.0",
+        "theme_version": "1.2",
         "meta_version": "1.3",
         "bootstrap_version": "3.1.0"
     },
@@ -28,40 +28,41 @@
         "use_logo": {
             "data_type": "boolean",
             "label": "Use brand logo",
-            "desc": "Whether to show your brand logo in the header. If No, just the header title will be displayed."
+            "desc": "Whether to show your brand logo in the header. If No, just the brand name will be displayed."
         },
         "title": {
             "data_type": "text",
             "label": "Brand name",
-            "desc": "You can configure the title to be shown in the header section here. If logo is shown, this will not be displayed."
+            "desc": "If you're not using your brand's logo, we recommend you to enter the name of your company here."
         },        
         "url": {
             "data_type": "text",
-            "label": "Brand URL",
-            "desc": "You can configure the URL will be redirect."
+            "label": "Landing page URL",
+            "desc": "Please provide the URL for a webpage (ex: homepage) where you would want your users to be directed if they click on your logo."
         },
         "title_color": {
             "data_type": "color",
             "label": "Text color",
-            "desc": "Text color for the brand name, if displayed. Also used for the account menu in the customer portal."
+            "desc": "Choose a text color for the brand name, it will also be used for the account menu in the customer portal."
+        },        
+        "center_logo": {
+            "data_type": "boolean",
+            "label": "Center aligned brand Logo",
+            "desc": "If you choose 'No' as an option, the logo would be left aligned in the header section."
         }
     },
     "body": {
         "meta": {
             "label": "Body"
         },
-        "background_color_left_top": {
+        "background_color": {
             "data_type": "color",
-            "label": "Background color left top"
-        },
-        "background_color_right_bottom": {
-            "data_type": "color",
-            "label": "Background color right bottom"
+            "label": "Background color"
         },
         "background_image": {
             "data_type": "image",
             "label": "Background image",
-            "desc" : "Background image is magnified only during preview mode."
+            "desc" : "Note: Background image is magnified only during preview mode."
         },
         "use_background_image": {
             "data_type": "boolean",
@@ -71,6 +72,15 @@
             "data_type": "boolean",
             "label": "Tile background image",
             "desc": "If yes, the image will be tiled across the page, otherwise it will be filled."
+        },
+        "overlay_background_image": {
+            "data_type": "boolean",
+            "label": "Overlay background image",
+            "desc": "Overlapping elements on a webpage can help highlight, prompt, and give priority to important content on your page."
+        },
+        "overlay": {
+            "data_type": "text",
+            "label": "Black overlay effect - value(0.1 - 0.9)"
         }
     },
     "typography": {
@@ -216,7 +226,7 @@
     "section": {
         "meta": {
             "label": "Sections",
-            "desc": "Groups the content inside it such as order summary, account information, card information, portal change subscription steps etc. Customize the look of these sections."
+            "desc": "Groups the content inside it such as order summary, account information, card information, portal etc. Customize the look of these sections."
         },
         "background_color": {
             "data_type": "color",
@@ -225,16 +235,6 @@
         "border_color": {
             "data_type": "color",
             "label": "Border color"
-        },
-        "heading_text_color": {
-            "data_type": "color",
-            "label": "Heading text color",
-            "desc": "Text color for the order summary and existing card details section in the hosted checkout and card update pages."
-        },
-        "heading_background_color": {
-            "data_type": "color",
-            "label": "Heading background color",
-            "desc": "Background color for the order summary and existing card details section in the hosted checkout and card update pages."
         }
     },
     "checkout": {
@@ -254,7 +254,7 @@
     },
     "thankyou": {
         "meta": {
-            "label": "Thanks",
+            "label": "Thank You",
             "desc": "Customize the elements that are specific to the thank page."
         },
         "page_title": {
@@ -284,20 +284,34 @@
             "desc": "The name of your hosted add/update card page that appears at the top of your browser tab."
         }
     },
-    "customer_portal": {
+    "portal": {
         "meta": {
             "label": "Customer Portal",
-            "desc": "Customize the elements that are specific to the customer portal ."
+            "desc": "Customize the elements that are specific to the customer portal."
         },
         "page_title": {
             "data_type": "text",
             "label": "Page title",
             "desc": "The name of your portal page that appears at the top of your browser tab."
+        },        
+        "apple_touch_icon": {
+            "data_type": "image",
+            "label": "Apple touch icon",
+            "desc": "Assign a Webpage icon to your customer portal, for customers who use iOS devices." 
         },
         "account": {
             "data_type": "text",
-            "label": "Account Dropdown : Margin-top",
-            "desc": "Account dropdown alignment. Make sure of use number with px,em,etc. otherwise theme will be collapsed."
+            "label": "Account dropdown menu - value(px)",
+            "desc": "Account dropdown menu can be aligned from the top by assigning a relevant value. Please assign a single value for the margin-top property, for ex: 10px"
+        },
+        "header_text_color": {
+            "data_type": "color",
+            "label": "Progress bar text color",            
+            "desc": "It appers in the change subscription section."
+        },
+        "header_background_color": {
+            "data_type": "color",
+            "label": "Progress bar background color"
         }
     },
     "subscription_status": {
@@ -353,7 +367,8 @@
         },
         "use_border": {
             "data_type": "boolean",
-            "label": "Whether to show border for the alert in portal."
+            "label": "Show border",
+            "desc": "Whether to show border for the alert in portal pages."
         }
     },
     "iframe": {
@@ -363,7 +378,7 @@
         },
         "center": {
             "data_type": "boolean",
-            "label": "Align center?",
+            "label": "Align center",
             "desc": "Specify whether to align the hosted page at center in the inside the iframe or not."
         },
         "border_color": {
@@ -373,8 +388,17 @@
         },
         "use_border": {
             "data_type": "boolean",
-            "label": "Show border?",
+            "label": "Show border",
             "desc": "Whether to show border for the iframe embed hosted page."
+        }
+    },
+    "error": {
+        "meta": {
+            "label": "Error page"
+        },
+        "use_background": {
+            "data_type": "boolean",
+            "label": "Highlight error text"
         }
     }
 }

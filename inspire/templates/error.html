@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-    <head>          
+    <head>
+        <!--Page title-->
         <title>Error</title>       
         <!--Favourite icon-->           
-        <link rel="shortcut icon" href='{{page.favicon}}'>        
+        <link rel="shortcut icon" href="{{page.favicon}}">
         <meta charset="utf-8">
         <!--Viewport for Responsive layout-->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -13,21 +14,16 @@
         <link href="{{theme_preset_css}}" rel="stylesheet" type="text/css" />
     </head>
     <body>
-        <section class="center-block container-portal">
-            <header id="header" class="clearfix text-center">
-                <a href="{{{header.url}}}" class="logo">
-                {{#header.use_logo}}
-                    <img src="{{header.logo}}" alt="{{{header.title}}}" class="img-responsive center-block">
-                {{/header.use_logo}}
-                {{^header.use_logo}}
-                    {{{header.title}}}
-                {{/header.use_logo}}
-                </a>
-            </header>
-            <div class="content">
-                <!--chargebee content start-->
-                <div id="__CHARGEBEE_CONTENT__"></div>
-                <!--chargebee content end-->            
+        <section class="center-block text-center container-error">
+            <div class="media">
+                <div class="pull-left">
+                    <span class="glyphicon glyphicon-exclamation-sign text-danger"></span>
+                </div>
+                <div class="media-body">
+                    <!--chargebee content start-->
+                    <div id="__CHARGEBEE_CONTENT__"></div>
+                    <!--chargebee content end-->
+                </div>
             </div>
         </section>
     </body>
