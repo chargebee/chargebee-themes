@@ -528,6 +528,12 @@ address{
     {{#iframe.center}} margin: auto; {{/iframe.center}}
     {{#iframe.use_border}}border: 1px solid {{iframe.border_color}};{{/iframe.use_border}}
 }
+#chargebee-iframe .cb-iframe-hidden{
+    display: none;
+}
+#chargebee-iframe .cb-iframe-full{
+    width: 100%!important;
+}
 
 /**********************************************************
  ChargeBee styled especially for Portal
