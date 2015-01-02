@@ -11,7 +11,7 @@ theme_name
 	|-- templates
 		|-- checkout.html
 		|-- thank_you.html
-		|-- update_card.html			
+		|-- update_payment_method.html
 		|-- iframe.html
 		|-- login.html
 		|-- portal.html
@@ -35,7 +35,7 @@ All the files specified above (except "thank_you.html") are mandatory to be pres
     * The required files in the template folder are:
         * checkout.html - The page inside which the Checkout page for both plan specific hosted pages & API based checkout pages are rendered.
 		* thank_you.html - Page users will be forwarded to on completion of a successful checkout.
-		* update_card.html - The page inside which the Update card page is rendered.
+		* update_payment_method.html - The page which is used to render an option to update the payment method - (Credit Card payment, PayPal Express Checkout, Amazon Payments)
 		* iframe.html - The page inside which the both the checkout & update card page is rendered when requesting the hosted pages for embedding inside iframe within your app.
 		* login.html - The page which is used to render the customer portal login page along with options to request reset password and signup link.
 		* portal.html - The customer portal page which is used to render the account details, billing address, card details, invoices, subscription details and shipping address for a customer.
