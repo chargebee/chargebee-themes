@@ -962,11 +962,7 @@ address{
     }
     .cb-available-pick{
         margin-top:10px;
-    }
-    /*Change subscription header for progress steps is hidden on mobile*/
-    .cb-product-header{
-        display:none;
-    }
+    }    
     /*Change subscription steps previous navigation*/
     .cb-nav-next{
         float:right;
