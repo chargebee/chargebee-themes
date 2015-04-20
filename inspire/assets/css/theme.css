@@ -172,7 +172,11 @@ a.text-danger:hover{
     background:{{input.background_focus_color}};
     border-color:{{input.border_focus_color}};
 }
-
+.form-control[disabled] + .input-group-addon,
+.form-control[readonly] + .input-group-addon {
+    background: #EEE;
+    cursor: not-allowed;
+}
 .btn-default,
 .btn-primary,
 .btn-danger{

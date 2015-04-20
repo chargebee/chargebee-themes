@@ -109,7 +109,11 @@ address{
     background:{{input.background_focus_color}};
     border-color:{{input.border_focus_color}};
 }
-
+.form-control[disabled] + .input-group-addon,
+.form-control[readonly] + .input-group-addon {
+    background: #EEE;
+    cursor: not-allowed;
+}
 /* This is provided here to ensure its present for the mobile devices, as Bootstrap remove this on mobile devices */
 .form-inline .form-group {
     display: inline-block;
