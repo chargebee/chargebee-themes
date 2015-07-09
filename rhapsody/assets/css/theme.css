@@ -507,7 +507,7 @@ address{
 
 /*Order total on checkout page*/
 #cb-order-total{
-    font-size:16px;
+    font-size:16px;    
 }
 
 /* Step progress on hosted checkout page*/
@@ -814,6 +814,7 @@ address{
 }
 .cb-product-title{
     font-size:17px;
+    font-weight: bold;
 }
 .cb-product-item{
     padding-top:5px;
@@ -825,6 +826,7 @@ address{
 /*Change Subscription review product grand total*/
 .cb-product-grand-total{
     font-size:16px;
+    font-weight: bold;
 }
 /*Change Subscription available products to pick*/
 .cb-available-list{

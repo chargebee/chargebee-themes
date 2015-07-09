@@ -529,6 +529,7 @@ a.text-danger:hover{
 /*Order total on checkout page*/
 #cb-order-total{
     font-size:16px;
+    margin-top: 10px;
 }
 /*Terms of service on checkout page*/
 #cb-tos a{
@@ -835,6 +836,7 @@ a.text-danger:hover{
 }
 .cb-product-title{
     font-size:16px;
+    font-weight: bold;
 }
 .cb-product-item{
     padding-top:5px;
@@ -846,6 +848,7 @@ a.text-danger:hover{
 /*Change Subscription review product grand total*/
 .cb-product-grand-total{
     font-size:16px;
+    font-weight: bold;
 }
 /*Change Subscription available products to pick*/
 .cb-available-list{
