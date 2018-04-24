@@ -64,6 +64,7 @@
         "subscription_status.non_renewing": "#555f78",
         "subscription_status.future": "#91388c",
         "subscription_status.cancelled": "#cc3335",
+        "subscription_status.paused": "#e8ba4a",
         "alert.info_border_color": "#79acc1",
         "alert.info_text_color": "#72a2b6",
         "alert.warning_border_color": "#d59e18",
