@@ -660,6 +660,11 @@ a.text-danger:hover{
     background:{{subscription_status.cancelled}};
 }
 
+/*Subscripiton status paused*/
+.cb-subscription-status.paused{
+    background:{{subscription_status.paused}};
+}
+
 /*Identifier contains the login,signup,change password,manage subscription,account,billing form in portal edit page.*/
 #cb-user-content{
     margin-left:auto;
