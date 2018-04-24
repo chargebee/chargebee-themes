@@ -342,6 +342,10 @@
         "cancelled": {
             "data_type": "color",
             "label": "Cancelled background color"
+        },
+        "paused": {
+            "data_type": "color",
+            "label": "Paused background color"
         }
     },
     "alert": {

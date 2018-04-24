@@ -689,6 +689,11 @@ a.text-danger:hover{
     background:{{subscription_status.cancelled}};
 }
 
+/*Subscripiton status paused*/
+.cb-subscription-status.paused{
+    background:{{subscription_status.paused}};
+}
+
 /*Subscription manage list on portal edit page*/
 .cb-subscription-manage dl{
     padding:12px 0;
